@@ -41,7 +41,8 @@ Route::get('/Buyers/{buyers}', 'BuyersController@show');
 Route::get('/Buyers/{buyers}/edit', 'BuyersController@edit');
 Route::post('Buyers/{request}', 'BuyersController@update');
 Route::delete('Buyers/{Buyer}', 'BuyersController@destroy');
-
+//Bids Route
+Route::post('/Bids/{buyers}/create', 'BidsController@createBid');
 
 //Comments Route
 Route::post('/Buyers/{buyers}/comments', 'CommentsController@create_comment');

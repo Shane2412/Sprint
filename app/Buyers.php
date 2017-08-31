@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use App\Bids;
 
 class Buyers extends Model
 {
@@ -31,9 +32,9 @@ class Buyers extends Model
       return $this->hasMany(Comments::class);
     }
 
-    public function addComment($body)
+    public function Bids()
     {
-      $this->comments()->create(compact('body'));
+      return $this->hasMany(Bids::class);
     }
 
 }

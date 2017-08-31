@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Farmers;
 use App\Buyers;
 use App\User;
+use App\Bids;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;

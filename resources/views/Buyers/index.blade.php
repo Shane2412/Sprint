@@ -9,7 +9,12 @@
             <h4 style="color:white;">Crop in Demand: {{$demand->crop_type}}</h4>
             <h4 style="color:white;">Due Date: {{$demand->end_date_of_order}}</h4>
             <a name="view" href="/Buyers/{{$demand->id}}" class="btn btn-success">View</a>
-            <input type="submit" name="bid" value="bid" class="btn btn-primary"> <hr>
+              <!-- <a href="Bids/{{$demand->id}}/create" class="btn btn-primary">Bid</a> <hr> -->
+            <form class="" action="/Bids/{{$demand->id}}/create/" method="post">
+              <input type="hidden" name="_method" value="post">
+                {{ csrf_field() }}
+                <input type="submit" name="bid" value="Bid" class="btn btn-danger">
+            </form>
 
         @endforeach
         {{$demands->links()}}

@@ -48,7 +48,8 @@ class UsersController extends Controller
         'address' => request('address'),
         'contact' => request('contact'),
         'status' => 'b',
-        'password' => bcrypt(request('password'))
+        'password' => bcrypt(request('password')),
+        'client_ip' => request()->ip(),
       ]);
       //redirect to homepage.
       alert()->success('Congrats!', 'You successfully Register as a Buyer');
