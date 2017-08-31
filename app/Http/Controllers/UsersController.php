@@ -6,6 +6,7 @@ use App\Buyers;
 use App\User;
 use App\Http\Controllers\BuyersController;
 use Auth;
+use Redirect;
 
 use Illuminate\Http\Request;
 
@@ -68,7 +69,8 @@ class UsersController extends Controller
              ]);
       return view('Buyers.login');
     }
-    return $demands->index();
+    //return $demands->index();
+    return redirect('Buyers/');
     }
 
     public function signIn_Farmers()

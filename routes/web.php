@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('home');
 });
 
+Auth::routes();
+
 //Farmers Route
 Route::get('Farmers/', 'BuyersController@index');
 Route::get('Farmers/create', 'FarmersController@create')->name('Farmers.create');
