@@ -11,7 +11,7 @@ use App\Orders;
 class Bids extends Model
 {
 
-    public $timestamps = false;
+    //public $timestamps = false;
 
 
 
