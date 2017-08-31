@@ -13,13 +13,12 @@ class BidsController extends Controller
 
     public function createBid(Buyers $buyers)
     {
-      $bid = Bids::create([
-          'quantity' => 10,
-          'user_id' => auth()->id(),
-          'demands_id' => $buyers->id
-      ]);
-      //return $bid;
-       alert()->success('Congrats!', 'You successfully Made a Bid');
+      $bid = new Bids;
+      $bid->quantity = 10;
+      $bid->user_id = auth()->id();
+      $bid->demands_id = $buyers->id;
+      $bid->save();
+       alert()->success('Congrats!', 'You successfully Bid');
        return back();
     }
 }

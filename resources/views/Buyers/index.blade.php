@@ -11,8 +11,8 @@
             <a name="view" href="/Buyers/{{$demand->id}}" class="btn btn-success">View</a>
               <!-- <a href="Bids/{{$demand->id}}/create" class="btn btn-primary">Bid</a> <hr> -->
             <form class="" action="/Bids/{{$demand->id}}/create/" method="post">
-              <input type="hidden" name="_method" value="post">
-                {{ csrf_field() }}
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              {!! csrf_field() !!}
                 <input type="submit" name="bid" value="Bid" class="btn btn-danger">
             </form>
 

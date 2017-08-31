@@ -7,8 +7,8 @@
             <a name="view" href="/Buyers/<?php echo e($demand->id); ?>" class="btn btn-success">View</a>
               <!-- <a href="Bids/<?php echo e($demand->id); ?>/create" class="btn btn-primary">Bid</a> <hr> -->
             <form class="" action="/Bids/<?php echo e($demand->id); ?>/create/" method="post">
-              <input type="hidden" name="_method" value="post">
-                <?php echo e(csrf_field()); ?>
+              <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+              <?php echo csrf_field(); ?>
 
                 <input type="submit" name="bid" value="Bid" class="btn btn-danger">
             </form>

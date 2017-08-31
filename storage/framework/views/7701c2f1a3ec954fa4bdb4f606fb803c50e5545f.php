@@ -3,6 +3,7 @@
     <head>
         <title>Farmer's Paradise</title>
           <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
           <script type="text/javascript" src="/js/jquery-3.2.1.js"></script>
           <?php echo $__env->make('templates.css', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   </head>
