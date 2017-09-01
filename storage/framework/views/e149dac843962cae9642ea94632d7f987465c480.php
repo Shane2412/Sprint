@@ -5,3 +5,6 @@
 <!--sweet alert  -->
 <script src="/js/sweetalert.js"></script>
 <script src="/js/notifications.js"></script>
+<script src="/js/app.js">
+
+</script>

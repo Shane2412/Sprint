@@ -4,6 +4,7 @@ namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Carbon\Carbon;
@@ -13,7 +14,7 @@ class BidToDemands extends Notification
     use Queueable;
 
 
-    protected $buyers;
+    public $buyers;
     /**
      * Create a new notification instance.
      *
@@ -32,7 +33,7 @@ class BidToDemands extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database', 'broadcast'];
     }
 
     public function toDatabase($notifiable)
@@ -42,6 +43,15 @@ class BidToDemands extends Notification
             'buyers' => $this->buyers,
             'user' => auth()->user()
         ];
+    }
+
+    public function toBroadcast($notifiable)
+    {
+        //dd($notifiable);
+        return new BroadcastMessage([
+            'buyers' => $this->buyers,
+            'user' => auth()->user()
+        ]);
     }
 
     public function toArray($notifiable)

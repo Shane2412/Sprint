@@ -21,18 +21,7 @@
 
 
               <?php if(Auth::check()): ?>
-              <li class="dropdown" id="markasread" onclick="markNotificationAsRead('<?php echo e(count(auth()->user()->unreadNotifications)); ?>')">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-globe"></span><span class="badge"><?php echo e(count(auth()->user()->unreadNotifications)); ?></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                          <?php $__empty_1 = true; $__currentLoopData = auth()->user()->unreadNotifications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notification): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                          <?php echo $__env->make('templates.notifications.'.snake_case(class_basename($notification->type)), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                          <a href="#">No unread Notifications</a>
-                          <?php endif; ?>
-                        </li>
-                    </ul>
-              </li>
+            <notification :userid="<?php echo e(auth()->id()); ?>" :unreads="<?php echo e(auth()->user()->unreadNotifications); ?>"> </notification>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cog" aria-hidden="true"> </i> Welcome <?php echo e(Auth::user()->name); ?> <span class="caret"></span></a>
                       <ul class="dropdown-menu" role="menu">
