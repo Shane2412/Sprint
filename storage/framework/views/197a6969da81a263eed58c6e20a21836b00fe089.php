@@ -1,0 +1,1 @@
+  <a href="/Buyers/<?php echo e($notification->data['buyers']['id']); ?>"><small><?php echo e($notification->data['user']['name']); ?> bid on your Demand <?php echo e($notification->data['buyers']['crop_type']); ?></small></a>

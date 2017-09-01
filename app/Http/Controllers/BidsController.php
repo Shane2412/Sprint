@@ -7,6 +7,7 @@ use App\Bids;
 use App\Buyers;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\BuyersController;
+use App\Notifications\BidToDemands;
 
 class BidsController extends Controller
 {
@@ -18,7 +19,8 @@ class BidsController extends Controller
       $bid->user_id = auth()->id();
       $bid->demands_id = $buyers->id;
       $bid->save();
-       alert()->success('Congrats!', 'You successfully Bid');
-       return back();
+      $buyers->user->notify(new BidToDemands($buyers));
+      alert()->success('Congrats!', 'You successfully Bid');
+      return back();
     }
 }
